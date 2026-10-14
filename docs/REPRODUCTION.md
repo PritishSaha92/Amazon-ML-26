@@ -1,6 +1,19 @@
 # Business Entity Resolution: code and reproduction guide
 
+[Repository overview](../README.md) · [Solution report](SOLUTION.md)
+
 Team "Asi baat hai kya", Amazon ML Challenge 2026. For the method and results, see [the solution report](SOLUTION.md). This guide explains setup and the pipeline commands.
+
+## Contents
+
+- [1. What the pipeline does](#1-what-the-pipeline-does)
+- [2. Hardware and time](#2-hardware-and-time)
+- [3. Setup](#3-setup)
+- [4. Stages](#4-stages)
+- [5. Reproducibility](#5-reproducibility)
+- [6. Pretrained models, libraries, data](#6-pretrained-models-libraries-data)
+- [7. Inputs](#7-inputs)
+- [8. Repository layout](#8-repository-layout)
 
 ## 1. What the pipeline does
 
@@ -40,18 +53,21 @@ Recommended local machine: 64 GB RAM or more (single local steps peak at ~34 GB;
 
 ## 3. Setup
 
+Run from the repository root with a Python 3.12.12 environment activated. See the [setup overview](../README.md#setup) for virtual-environment creation.
+
 ```bash
-# Python 3.12.12
-pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cu128
-pip install -r requirements.txt          # pinned; includes duckdb and sentencepiece
-export BER_ROOT=/path/to/repository   # project root; cwd of every command
-export BER_SCRATCH=/path/to/large/disk                          # ~400 GB for a run from the raw files
-export BER_PY=$(which python)  HF_HOME=$BER_SCRATCH/hf          # HF_HOME: local model cache (local scripts use $BER_SCRATCH/hf)
-cd $BER_ROOT
-ln -s /path/to/student_resource student_resource                # organisers' kit
+python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cu128
+python -m pip install -r requirements.txt
+
+export BER_ROOT="$PWD"
+export BER_SCRATCH=/path/to/large/disk  # Approximately 400 GB for a full run.
+export BER_PY="$(command -v python)"
+export HF_HOME="$BER_SCRATCH/hf"
+
+ln -s /path/to/student_resource student_resource
 bash pipeline/setup_workspace.sh
-$BER_PY pipeline/fetch_models.py    # mandatory: e5-base d128750..., e5-small 614241f... (pinned) -> $HF_HOME/hub
-S="$BER_SCRATCH"                    # shorthand used by the commands below
+"$BER_PY" pipeline/fetch_models.py  # Download the two pinned model revisions.
+S="$BER_SCRATCH"                   # Shorthand used in the stage commands below.
 ```
 
 Offline use: once both models are in `$HF_HOME`, set `HF_HUB_OFFLINE=1` (for `fetch_models.py` and every later step).

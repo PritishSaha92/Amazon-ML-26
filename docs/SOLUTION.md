@@ -1,5 +1,7 @@
 # ML Challenge 2026: Business Entity Resolution Solution
 
+[Repository overview](../README.md) · [Reproduction guide](REPRODUCTION.md)
+
 **Team Name:** Asi baat hai kya  
 **Team Members:** Ankit Meda, Pritish Saha, Srinjoy Ganguly, Aadhar Batra  
 **Submission Date:** 29 September 2026
@@ -19,14 +21,13 @@ Final submission: `matching_results.tsv` (MD5 `d5d44ade281e7213af54f65cb968be2d`
 
 **Contents**
 
-1. Executive Summary
-2. Methodology: 2.1 Problem Analysis, 2.2 Solution Strategy
-3. Candidate Generation (Blocking)
-4. Matching Model: 4.1 Pair features, 4.2 Stage 1, 4.3 The first complete pipeline, 4.4 to 4.7 the four gaps
-5. Results & Error Analysis
-6. Conclusion
-
-Appendix: A. Code Artefacts, B. Additional Results, C. Licences, data and fair play
+1. [Executive summary](#1-executive-summary)
+2. [Methodology](#2-methodology)
+3. [Candidate generation (blocking)](#3-candidate-generation-blocking)
+4. [Matching model](#4-matching-model)
+5. [Results and error analysis](#5-results--error-analysis)
+6. [Conclusion](#6-conclusion)
+7. [Appendix](#appendix): [code artefacts](#a-code-artefacts), [additional results](#b-additional-results), and [licences, data, and fair play](#c-licences-data-and-fair-play)
 
 ---
 
