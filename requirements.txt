@@ -1,0 +1,25 @@
+# Python 3.12.12, Linux x86_64. Install torch from the CUDA 12.8 wheel index first:
+#   pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cu128
+# then:
+#   pip install -r requirements.txt
+# Packages imported by the code in src/ (pinned to the versions the pipeline ran with), plus the runtime pieces the
+# e5 tokenizers and model loading need. Licences: torch BSD-3; transformers, tokenizers, safetensors, huggingface_hub,
+# sentence-transformers, sentencepiece, pyarrow Apache-2.0; polars, lightgbm, rapidfuzz, duckdb MIT; numpy, scipy,
+# scikit-learn, joblib BSD-3.
+torch==2.10.0
+transformers==5.2.0
+tokenizers==0.22.2
+safetensors==0.5.3
+huggingface_hub==1.12.2
+sentence-transformers==5.2.3
+sentencepiece==0.2.1
+polars==1.44.2
+polars-runtime-32==1.44.2
+numpy==2.3.5
+pyarrow==23.0.1
+lightgbm==4.7.0
+scikit-learn==1.8.0
+scipy==1.17.1
+joblib==1.5.3
+rapidfuzz==3.14.6
+duckdb==1.5.5

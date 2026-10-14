@@ -1,0 +1,55 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+
+# Local credentials and editor settings
+.env
+.env.*
+!.env.example
+.aws/
+.codex/
+.agents/
+.vscode/
+.idea/
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+
+# Competition inputs and generated workspace (including symlinks)
+/student_resource
+/data
+/cache*
+/hf
+/logs/
+/submissions/
+/output/*
+!/output/README.md
+
+# Keep the two shipped model metadata files, not trained weights
+/models/*
+!/models/lgbm_v7.json
+!/models/lgbm_v7avg.json
+!/models/README.md
+
+# Large generated ML artifacts
+*.parquet
+*.npy
+*.npz
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.joblib
+*.log
